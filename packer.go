@@ -115,6 +115,10 @@ func (p *Packer) PushString(s string) *Packer {
 	})
 }
 
+func (p *Packer) Bytes() []byte {
+	return p.writer.Bytes()
+}
+
 func (p *Packer) errFilter(f func()) *Packer {
 	if p.err == nil {
 		f()
