@@ -8,7 +8,7 @@ import (
 
 // Packer is a binary packer helps you pack data into an io.Writer.
 type Packer struct {
-	buffer bytes.Buffer
+	buffer *bytes.Buffer
 	order binary.ByteOrder
 	err error
 }
@@ -18,7 +18,7 @@ func (p *Packer) SetOrder (order binary.ByteOrder) {
 }
 
 // NewPacker returns a *Packer hold an io.Writer.
-func NewPacker(buffer bytes.Buffer) *Packer {
+func NewPacker(buffer *bytes.Buffer) *Packer {
 	return &Packer{
 		buffer: buffer,
 		order: binary.BigEndian,
