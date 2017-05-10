@@ -2,13 +2,13 @@ package BytePacker
 
 import (
 	"math"
-	"io"
+	"bytes"
 	"encoding/binary"
 )
 
 // Packer is a binary packer helps you pack data into an io.Writer.
 type Packer struct {
-	writer io.Writer
+	writer bytes.Buffer
 	order binary.ByteOrder
 	err error
 }
